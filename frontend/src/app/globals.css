@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --neon-blue: #ffffff;
+  --neon-gold: #888888;
+  --dark-void: #050505;
+}
+
+body {
+  background: #050505;
+  color: #eeeeee;
+  overflow-x: hidden;
+  font-family: "Averia Libre", system-ui;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Custom glowing scrollbar (monochrome) */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+/* --- Added for Upgraded Animated Background --- */
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+@keyframes sway {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes floatScale {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+@layer utilities {
+  .animate-blob {
+    animation: blob 15s infinite alternate ease-in-out;
+  }
+  .animate-scanline {
+    animation: scanline 8s linear infinite;
+  }
+  .animate-sway {
+    animation: sway 6s ease-in-out infinite alternate;
+  }
+  .animate-float-scale {
+    animation: floatScale 8s ease-in-out infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+/* Base custom classes for new aesthetics */
+.bg-dragon-scales {
+  background-image: radial-gradient(circle at center, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px),
+                    radial-gradient(circle at center, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}

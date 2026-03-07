@@ -1,0 +1,27 @@
+# ==========================================
+# Competitive Intelligence ML Engine 
+# Final Year Project Dependencies
+# ==========================================
+
+# 1. Core Data Manipulation
+pandas
+numpy
+
+# 2. Machine Learning Algorithms
+scikit-learn
+xgboost
+
+# 3. Explainable AI (XAI)
+shap
+
+# 4. Model Persistence (Saving/Loading)
+joblib
+
+# 5. Automated Testing & Simulation
+tqdm
+
+# 6. Academic Data Visualization
+matplotlib
+seaborn
+mlflow
+optuna
