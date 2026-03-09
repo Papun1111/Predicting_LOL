@@ -1,0 +1,1 @@
+t1_fighter,t1_mage,t1_marksman,t1_assassin,t1_support,t1_tank,t2_fighter,t2_mage,t2_marksman,t2_assassin,t2_support,t2_tank,t1_ap_ad_ratio,t2_ap_ad_ratio,t1_meta,t2_meta,t1_synergy,t2_synergy,t1_counter

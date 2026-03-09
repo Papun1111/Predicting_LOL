@@ -68,25 +68,25 @@
         },
         "Random Forest": {
             "name": "Random Forest",
-            "Accuracy": 0.6631384734899981,
-            "Precision": 0.6572215663124754,
-            "Recall": 0.6591671600552595,
-            "F1-Score": 0.6581929254113705,
-            "auc": 0.7241,
+            "Accuracy": 0.6656632355797242,
+            "Precision": 0.6597167584579071,
+            "Recall": 0.6619301361752516,
+            "F1-Score": 0.6608215939316323,
+            "auc": 0.7239,
             "confusion_matrix": [
                 [
-                    3489,
-                    1742
+                    3501,
+                    1730
                 ],
                 [
-                    1727,
-                    3340
+                    1713,
+                    3354
                 ]
             ],
-            "TP (Correct Blue)": 3489,
-            "FN (Wrong Red)": 1742,
-            "FP (Wrong Blue)": 1727,
-            "TN (Correct Red)": 3340
+            "TP (Correct Blue)": 3501,
+            "FN (Wrong Red)": 1730,
+            "FP (Wrong Blue)": 1713,
+            "TN (Correct Red)": 3354
         },
         "Gradient Boosting": {
             "name": "Gradient Boosting",
@@ -112,25 +112,25 @@
         },
         "XGBoost": {
             "name": "XGBoost",
-            "Accuracy": 0.6681879976694504,
-            "Precision": 0.6629146919431279,
-            "Recall": 0.6625222024866785,
-            "F1-Score": 0.6627183891027539,
-            "auc": 0.7285,
+            "Accuracy": 0.6713925033987181,
+            "Precision": 0.6660090747681988,
+            "Recall": 0.6662719557923821,
+            "F1-Score": 0.6661404893449092,
+            "auc": 0.7287,
             "confusion_matrix": [
                 [
-                    3524,
-                    1707
+                    3538,
+                    1693
                 ],
                 [
-                    1710,
-                    3357
+                    1691,
+                    3376
                 ]
             ],
-            "TP (Correct Blue)": 3524,
-            "FN (Wrong Red)": 1707,
-            "FP (Wrong Blue)": 1710,
-            "TN (Correct Red)": 3357
+            "TP (Correct Blue)": 3538,
+            "FN (Wrong Red)": 1693,
+            "FP (Wrong Blue)": 1691,
+            "TN (Correct Red)": 3376
         },
         "Deep Learning (ANN)": {
             "name": "Deep Learning (ANN)",
@@ -156,25 +156,25 @@
         },
         "Stacking Ensemble": {
             "name": "STACKING ENSEMBLE",
-            "Accuracy": 0.6664400854534861,
-            "Precision": 0.6604404246952419,
-            "Recall": 0.6629169133609631,
-            "F1-Score": 0.6616763518171969,
-            "auc": 0.729,
+            "Accuracy": 0.6691590600116527,
+            "Precision": 0.6631930790405034,
+            "Recall": 0.6656798894809552,
+            "F1-Score": 0.6644341573919039,
+            "auc": 0.7296,
             "confusion_matrix": [
                 [
-                    3504,
-                    1727
+                    3518,
+                    1713
                 ],
                 [
-                    1708,
-                    3359
+                    1694,
+                    3373
                 ]
             ],
-            "TP (Correct Blue)": 3504,
-            "FN (Wrong Red)": 1727,
-            "FP (Wrong Blue)": 1708,
-            "TN (Correct Red)": 3359
+            "TP (Correct Blue)": 3518,
+            "FN (Wrong Red)": 1713,
+            "FP (Wrong Blue)": 1694,
+            "TN (Correct Red)": 3373
         }
     },
     "roc_data": [
@@ -194,172 +194,172 @@
             "LOGISTIC REGRESSION": 0.226,
             "NAIVE BAYES": 0.176,
             "K-NEAREST NEIGHBORS": 0.131,
-            "RANDOM FOREST": 0.224,
+            "RANDOM FOREST": 0.219,
             "GRADIENT BOOSTING": 0.227,
-            "XGBOOST": 0.223,
+            "XGBOOST": 0.226,
             "DEEP LEARNING (ANN)": 0.138,
-            "STACKING ENSEMBLE": 0.227
+            "STACKING ENSEMBLE": 0.221
         },
         {
             "fpr": 0.11,
             "LOGISTIC REGRESSION": 0.337,
             "NAIVE BAYES": 0.288,
             "K-NEAREST NEIGHBORS": 0.22,
-            "RANDOM FOREST": 0.34,
+            "RANDOM FOREST": 0.335,
             "GRADIENT BOOSTING": 0.345,
-            "XGBOOST": 0.346,
+            "XGBOOST": 0.342,
             "DEEP LEARNING (ANN)": 0.227,
-            "STACKING ENSEMBLE": 0.346
+            "STACKING ENSEMBLE": 0.347
         },
         {
             "fpr": 0.16,
             "LOGISTIC REGRESSION": 0.434,
             "NAIVE BAYES": 0.379,
             "K-NEAREST NEIGHBORS": 0.299,
-            "RANDOM FOREST": 0.436,
+            "RANDOM FOREST": 0.431,
             "GRADIENT BOOSTING": 0.429,
-            "XGBOOST": 0.435,
+            "XGBOOST": 0.439,
             "DEEP LEARNING (ANN)": 0.292,
-            "STACKING ENSEMBLE": 0.435
+            "STACKING ENSEMBLE": 0.444
         },
         {
             "fpr": 0.21,
             "LOGISTIC REGRESSION": 0.524,
             "NAIVE BAYES": 0.459,
             "K-NEAREST NEIGHBORS": 0.371,
-            "RANDOM FOREST": 0.516,
+            "RANDOM FOREST": 0.515,
             "GRADIENT BOOSTING": 0.51,
             "XGBOOST": 0.521,
             "DEEP LEARNING (ANN)": 0.364,
-            "STACKING ENSEMBLE": 0.522
+            "STACKING ENSEMBLE": 0.52
         },
         {
             "fpr": 0.26,
             "LOGISTIC REGRESSION": 0.596,
             "NAIVE BAYES": 0.518,
             "K-NEAREST NEIGHBORS": 0.429,
-            "RANDOM FOREST": 0.585,
+            "RANDOM FOREST": 0.581,
             "GRADIENT BOOSTING": 0.583,
-            "XGBOOST": 0.59,
+            "XGBOOST": 0.594,
             "DEEP LEARNING (ANN)": 0.428,
-            "STACKING ENSEMBLE": 0.59
+            "STACKING ENSEMBLE": 0.598
         },
         {
             "fpr": 0.32,
             "LOGISTIC REGRESSION": 0.655,
             "NAIVE BAYES": 0.583,
             "K-NEAREST NEIGHBORS": 0.487,
-            "RANDOM FOREST": 0.641,
+            "RANDOM FOREST": 0.649,
             "GRADIENT BOOSTING": 0.65,
-            "XGBOOST": 0.65,
+            "XGBOOST": 0.657,
             "DEEP LEARNING (ANN)": 0.482,
-            "STACKING ENSEMBLE": 0.65
+            "STACKING ENSEMBLE": 0.657
         },
         {
             "fpr": 0.37,
             "LOGISTIC REGRESSION": 0.704,
             "NAIVE BAYES": 0.637,
             "K-NEAREST NEIGHBORS": 0.545,
-            "RANDOM FOREST": 0.7,
+            "RANDOM FOREST": 0.697,
             "GRADIENT BOOSTING": 0.698,
-            "XGBOOST": 0.704,
+            "XGBOOST": 0.709,
             "DEEP LEARNING (ANN)": 0.545,
-            "STACKING ENSEMBLE": 0.708
+            "STACKING ENSEMBLE": 0.709
         },
         {
             "fpr": 0.42,
             "LOGISTIC REGRESSION": 0.749,
             "NAIVE BAYES": 0.68,
             "K-NEAREST NEIGHBORS": 0.6,
-            "RANDOM FOREST": 0.746,
+            "RANDOM FOREST": 0.747,
             "GRADIENT BOOSTING": 0.739,
-            "XGBOOST": 0.745,
+            "XGBOOST": 0.747,
             "DEEP LEARNING (ANN)": 0.604,
-            "STACKING ENSEMBLE": 0.749
+            "STACKING ENSEMBLE": 0.75
         },
         {
             "fpr": 0.47,
             "LOGISTIC REGRESSION": 0.786,
             "NAIVE BAYES": 0.727,
             "K-NEAREST NEIGHBORS": 0.646,
-            "RANDOM FOREST": 0.786,
+            "RANDOM FOREST": 0.784,
             "GRADIENT BOOSTING": 0.781,
-            "XGBOOST": 0.788,
+            "XGBOOST": 0.784,
             "DEEP LEARNING (ANN)": 0.655,
-            "STACKING ENSEMBLE": 0.79
+            "STACKING ENSEMBLE": 0.785
         },
         {
             "fpr": 0.53,
             "LOGISTIC REGRESSION": 0.823,
             "NAIVE BAYES": 0.769,
             "K-NEAREST NEIGHBORS": 0.693,
-            "RANDOM FOREST": 0.82,
+            "RANDOM FOREST": 0.823,
             "GRADIENT BOOSTING": 0.821,
-            "XGBOOST": 0.822,
+            "XGBOOST": 0.819,
             "DEEP LEARNING (ANN)": 0.709,
-            "STACKING ENSEMBLE": 0.825
+            "STACKING ENSEMBLE": 0.823
         },
         {
             "fpr": 0.58,
             "LOGISTIC REGRESSION": 0.854,
             "NAIVE BAYES": 0.812,
             "K-NEAREST NEIGHBORS": 0.74,
-            "RANDOM FOREST": 0.847,
+            "RANDOM FOREST": 0.848,
             "GRADIENT BOOSTING": 0.852,
-            "XGBOOST": 0.852,
+            "XGBOOST": 0.85,
             "DEEP LEARNING (ANN)": 0.758,
-            "STACKING ENSEMBLE": 0.852
+            "STACKING ENSEMBLE": 0.854
         },
         {
             "fpr": 0.63,
             "LOGISTIC REGRESSION": 0.882,
             "NAIVE BAYES": 0.842,
             "K-NEAREST NEIGHBORS": 0.787,
-            "RANDOM FOREST": 0.875,
+            "RANDOM FOREST": 0.877,
             "GRADIENT BOOSTING": 0.878,
-            "XGBOOST": 0.881,
+            "XGBOOST": 0.882,
             "DEEP LEARNING (ANN)": 0.802,
-            "STACKING ENSEMBLE": 0.881
+            "STACKING ENSEMBLE": 0.879
         },
         {
             "fpr": 0.68,
             "LOGISTIC REGRESSION": 0.903,
             "NAIVE BAYES": 0.875,
             "K-NEAREST NEIGHBORS": 0.826,
-            "RANDOM FOREST": 0.903,
+            "RANDOM FOREST": 0.901,
             "GRADIENT BOOSTING": 0.902,
-            "XGBOOST": 0.905,
+            "XGBOOST": 0.904,
             "DEEP LEARNING (ANN)": 0.837,
-            "STACKING ENSEMBLE": 0.906
+            "STACKING ENSEMBLE": 0.903
         },
         {
             "fpr": 0.74,
             "LOGISTIC REGRESSION": 0.932,
             "NAIVE BAYES": 0.9,
             "K-NEAREST NEIGHBORS": 0.861,
-            "RANDOM FOREST": 0.922,
+            "RANDOM FOREST": 0.923,
             "GRADIENT BOOSTING": 0.923,
-            "XGBOOST": 0.929,
+            "XGBOOST": 0.93,
             "DEEP LEARNING (ANN)": 0.869,
-            "STACKING ENSEMBLE": 0.927
+            "STACKING ENSEMBLE": 0.93
         },
         {
             "fpr": 0.79,
             "LOGISTIC REGRESSION": 0.952,
             "NAIVE BAYES": 0.926,
             "K-NEAREST NEIGHBORS": 0.897,
-            "RANDOM FOREST": 0.945,
+            "RANDOM FOREST": 0.946,
             "GRADIENT BOOSTING": 0.949,
             "XGBOOST": 0.951,
             "DEEP LEARNING (ANN)": 0.906,
-            "STACKING ENSEMBLE": 0.951
+            "STACKING ENSEMBLE": 0.95
         },
         {
             "fpr": 0.84,
             "LOGISTIC REGRESSION": 0.969,
             "NAIVE BAYES": 0.948,
             "K-NEAREST NEIGHBORS": 0.932,
-            "RANDOM FOREST": 0.963,
+            "RANDOM FOREST": 0.964,
             "GRADIENT BOOSTING": 0.967,
             "XGBOOST": 0.968,
             "DEEP LEARNING (ANN)": 0.935,
@@ -370,11 +370,11 @@
             "LOGISTIC REGRESSION": 0.982,
             "NAIVE BAYES": 0.972,
             "K-NEAREST NEIGHBORS": 0.956,
-            "RANDOM FOREST": 0.98,
+            "RANDOM FOREST": 0.979,
             "GRADIENT BOOSTING": 0.98,
-            "XGBOOST": 0.985,
+            "XGBOOST": 0.982,
             "DEEP LEARNING (ANN)": 0.959,
-            "STACKING ENSEMBLE": 0.983
+            "STACKING ENSEMBLE": 0.982
         },
         {
             "fpr": 0.95,
@@ -385,7 +385,7 @@
             "GRADIENT BOOSTING": 0.993,
             "XGBOOST": 0.993,
             "DEEP LEARNING (ANN)": 0.979,
-            "STACKING ENSEMBLE": 0.993
+            "STACKING ENSEMBLE": 0.992
         },
         {
             "fpr": 1.0,

@@ -64,45 +64,48 @@ The scripts in the `src` directory are designed to be run in a specific order to
 
 ### Standard Training Pipeline
 
-To go from raw data to trained models ready for inference, execute the following scripts in sequence from the `ml` root directory:
+To go from raw data to trained models ready for inference in your local system, you need to navigate to the `src` directory and execute the scripts in sequence step-by-step.
+
+First, navigate to the source directory:
+```bash
+cd src
+```
 
 1. **Load and Process Data:** Cleans raw data and prepares it for analysis.
 ```bash
-python src/load_data.py
-
+python load_data.py
 ```
-
 
 2. **Generate Statistics:** Creates necessary statistical maps (synergy, matchups) based on the processed data.
 ```bash
-python src/generate_stats.py
-
+python generate_stats.py
 ```
-
 
 3. **Train Models:** Uses the processed data and statistics to train the ensemble model and other components, saving them as `.pkl` files.
-```bash
-python src/train.py
+You can run this in standard mode or with hyperparameter tuning to optimize the model:
 
+*Standard Training:*
+```bash
+python train.py
 ```
 
-
+*Optimized Training (with Hyperparameter Tuning):*
+```bash
+python train.py --tune
+```
 
 ### Academic Validation & Results
 
-To generate data for paper validation and visualize those results:
+To generate data for paper validation and visualize those results, ensure you are still in the `src` directory:
 
 1. **Run Dynamic Tests:** Executes test scenarios to generate performance data.
 ```bash
-python src/dynamic_paper_test.py
-
+python dynamic_paper_test.py
 ```
-
 
 2. **Visualize Results:** Generates plots or visual assets based on the test data.
 ```bash
-python src/visualize_paper_results.py
-
+python visualize_paper_results.py
 ```
 
 
