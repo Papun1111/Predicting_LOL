@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowLeft, Shield, Sword, Sparkles, Activity, Crosshair, Skull } from 'lucide-react';
+import { ArrowLeft, Shield, Sword, Sparkles, Activity, Crosshair, Skull,Slice } from 'lucide-react';
 import Navbar from '../../../components/Navbar';
-import GlassCard from '../../../components/GlassCard';
+
 import api from '../../../lib/api';
 
 export default function ChampionDetailPage() {
@@ -186,7 +186,7 @@ export default function ChampionDetailPage() {
                       {tag === 'Fighter' && <Sword size={16} className="text-[#ef4444]" />}
                       {tag === 'Tank' && <Shield size={16} className="text-[#00f2ff]" />}
                       {tag === 'Mage' && <Sparkles size={16} className="text-[#a855f7]" />}
-                      {tag === 'Assassin' && <Dagger size={16} className="text-[#ef4444]" />}
+                      {tag === 'Assassin' && <Slice size={16} className="text-[#ef4444]" />}
                       {tag === 'Marksman' && <Crosshair size={16} className="text-[#f97316]" />}
                       {tag === 'Support' && <Shield size={16} className="text-[#22c55e]" />}
                       <span>{tag}</span>

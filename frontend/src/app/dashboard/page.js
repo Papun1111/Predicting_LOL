@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search } from 'lucide-react';
 import Image from 'next/image';
 import Navbar from '../../components/Navbar';
-import GlassCard from '../../components/GlassCard';
+
 import api from '../../lib/api';
 import Link from 'next/link';
 
