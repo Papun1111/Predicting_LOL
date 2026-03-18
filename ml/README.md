@@ -1,170 +1,88 @@
-Here is a `README.md` for the `ml` folder, detailing its setup, execution, and structure based on the provided images.
+# 🧠 Intelligence Engine & ML Pipeline (`ml`)
 
----
+This directory houses the core "Brain" of the project—a **Hybrid Intelligent Architecture** that combines high-performance Machine Learning with expert-driven heuristics. It manages the entire lifecycle of the League of Legends predictor, from raw data ingestion to real-time inference and academic validation.
 
-# Machine Learning Directory (`ml`)
+## 🛠️ Environment Setup
 
-This directory contains the complete machine learning pipeline for the project, including raw data storage, source code for data processing and model training, serialized model artifacts, and scripts for academic validation and visual results generation.
-
-## Table of Contents
-
-1. [Environment Setup](https://www.google.com/search?q=%23environment-setup)
-2. [Execution Flow](https://www.google.com/search?q=%23execution-flow)
-3. [Folder Structure & File Explanation](https://www.google.com/search?q=%23folder-structure--file-explanation)
-
----
-
-## Environment Setup
-
-To ensure dependencies are managed correctly and do not conflict with system packages, it is recommended to use a virtual environment.
+To ensure stability and isolate dependencies, it is mandatory to use a virtual environment.
 
 ### 1. Create a Virtual Environment
-
-Navigate to the `ml` directory in your terminal and run the following command to create a virtual environment named `venv` (or a name of your choosing, like `nenv` as seen in the project structure).
-
-**Windows / macOS / Linux:**
-
+Navigate to the `ml` directory:
 ```bash
 python -m venv venv
-
 ```
 
-### 2. Activate the Virtual Environment
+### 2. Activate the Environment
+- **Windows**: `.\venv\Scripts\activate`
+- **macOS / Linux**: `source venv/bin/activate`
 
-Before installing dependencies or running scripts, activate the environment.
-
-**Windows:**
-
-```bash
-.\venv\Scripts\activate
-
-```
-
-**macOS / Linux:**
-
-```bash
-source venv/bin/activate
-
-```
-
-### 3. Install Requirements
-
-Once the virtual environment is activated, install the necessary Python packages listed in `requirements.txt`.
-
+### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
-
 ```
 
 ---
 
-## Execution Flow
+## ⚡ Execution Flow & Phases
 
-The scripts in the `src` directory are designed to be run in a specific order to prepare data and train the models.
+The system is divided into three distinct operational phases:
 
-### Standard Training Pipeline
+### Phase 1: Data Pipeline & Intelligence Generation
+Before training, the system must process raw data into "Intelligence Matrices" (Synergy, Matchups, Meta).
 
-To go from raw data to trained models ready for inference in your local system, you need to navigate to the `src` directory and execute the scripts in sequence step-by-step.
-
-First, navigate to the source directory:
+Navigate to the source directory:
 ```bash
 cd src
 ```
 
-1. **Load and Process Data:** Cleans raw data and prepares it for analysis.
-```bash
-python load_data.py
-```
+1.  **Load Data**: `python load_data.py` (Cleans raw `games.csv`).
+2.  **Generate Stats**: `python generate_stats.py` (Calculates the mathematical "Soul" of the AI).
 
-2. **Generate Statistics:** Creates necessary statistical maps (synergy, matchups) based on the processed data.
-```bash
-python generate_stats.py
-```
+### Phase 2: Training & Optimization
+Trains the **Stacking Ensemble** (XGBoost + Random Forest) and the **SHAP Explainer**.
+- **Standard**: `python train.py`
+- **Optimized**: `python train.py --tune` (Uses **Optuna** for hyperparameter tuning).
 
-3. **Train Models:** Uses the processed data and statistics to train the ensemble model and other components, saving them as `.pkl` files.
-You can run this in standard mode or with hyperparameter tuning to optimize the model:
+### Phase 3: Inference & Real-Time Services
+These scripts are called by the `backend` via `pythonService.ts`, but can be tested manually:
+- **Predict**: `python predict.py` (Real-time win probability + SHAP X-Ray).
+- **Recommend**: `python recommend.py` (Iterative draft optimization).
 
-*Standard Training:*
-```bash
-python train.py
-```
-
-*Optimized Training (with Hyperparameter Tuning):*
-```bash
-python train.py --tune
-```
-
-### Academic Validation & Results
-
-To generate data for paper validation and visualize those results, ensure you are still in the `src` directory:
-
-1. **Run Dynamic Tests:** Executes test scenarios to generate performance data.
-```bash
-python dynamic_paper_test.py
-```
-
-2. **Visualize Results:** Generates plots or visual assets based on the test data.
-```bash
-python visualize_paper_results.py
-```
-
-
-
-*Note: Scripts like `predict.py` and `recommend.py` are typically designed to be called by an external application (like a backend API) for real-time inference rather than run manually in this sequence.*
+### Phase 4: Academic Validation
+Produces results for paper publishing (Run from `src`):
+1.  **Monte Carlo**: `python dynamic_paper_test.py` (1,000+ match simulations).
+2.  **Visualize**: `python visualize_paper_results.py` (Generates plots in `results/`).
 
 ---
 
-## Folder Structure & File Explanation
+## 📂 Folder Structure
 
-Below is a detailed explanation of the contents within the `ml` directory based on the provided project structure.
+### `data/`
+Raw datasets and processed metadata:
+- `games.csv`: The historical match foundation.
+- `champion_full_stats.json`: Metadata for all League heroes.
+- `model_metrics.json`: Accuracy/ROC metrics saved after training.
 
-### 📂 `data/`
+### `models/` (The "Brain" Artifacts)
+Serialized `.pkl` files loaded during runtime:
+- `ensemble_model.pkl`: The core predictor.
+- `explainer.pkl`: The SHAP engine for X-Ray vision.
+- `synergy_map.pkl` / `matchup_map.pkl`: Pre-computed relationship matrices.
 
-Contains raw input data (JSON, CSV) required for training and metrics generated during the process.
+### `notebooks/`
+Experimental research and sandbox environments:
+- `Explainable_AI_SHAP.ipynb`: Deep dive into model feature importance.
+- `Heuristic_Log_Odds_Simulation.ipynb`: Proof of the Bayesian penalty system.
 
-* `champion_full_stats.json`, `champion_info_2.json`, `champion_info.json`: Various datasets containing champion-related information.
-* `games.csv`: Historical game data used for training.
-* `model_metrics.json`: Stores evaluation metrics of trained models.
-* `summoner_spell_info.json`: Information regarding summoner spells.
+### `src/`
+The production source code:
+- `feature_engineering.py`: Logic for converting raw draft data into ML-ready vectors.
+- `config.py`: Global paths and environment constants.
 
-### 📂 `models/`
+### `results/`
+Storage for academic plots, distribution curves, and simulation logs.
 
-This directory stores the serialized Python objects (pickled files) generated by the training pipeline. These are loaded during inference.
+---
 
-* `champ_stats.pkl`, `matchup_map.pkl`, `meta_scores.pkl`, `synergy_map.pkl`: Statistical dictionaries and maps generated by `generate_stats.py`.
-* `ensemble_model.pkl`, `model.pkl`: The trained machine learning models.
-* `explainer.pkl`: Model explainer object (likely SHAP or similar) for interpretability.
-* `scaler.pkl`: Data scaler fitted during training to normalize inputs.
-
-### 📂 `src/`
-
-Contains all the Python source code for the machine learning lifecycle.
-
-**Pipeline & Training Scripts:**
-
-* `config.py`: Configuration file holding constants and file paths.
-* `feature_engineering.py`: Contains functions for creating features from raw data.
-* `generate_stats.py`: Script to calculate and save statistical maps (synergy, matchups, etc.).
-* `load_data.py`: Initial script to load, clean, and preprocess raw data.
-* `train.py`: Main script to train the machine learning models and save them to the `models/` directory.
-
-**Inference Scripts:**
-
-* `predict.py`: Script used to make predictions using the trained models.
-* `recommend.py`: Script used to generate recommendations based on the models.
-
-**Academic & Testing Scripts:**
-
-* `dynamic_paper_test.py`: Script for running dynamic tests for academic validation.
-* `visualize_paper_results.py`: Script to generate visualizations from test results.
-
-### 📂 `results/`
-
-A directory designated for storing output files generated by the academic testing and visualization scripts.
-
-### Root Files
-
-* `requirements.txt`: A list of Python dependencies required to run the project.
-* `ExecutionFlow.md`: Documentation specifically detailing the execution order of scripts.
-* `README.md`: This documentation file.
-* `.gitignore`: Specifies intentionally untracked files to ignore.
+**Part of the Competitive Intelligence AI Research Project.**
+s to ignore.

@@ -3,7 +3,7 @@
 [![Project Status: Active](https://img.shields.io/badge/Project%20Status-Active-green.svg)](https://github.com/Papun1111/Predicting_LOL)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python: 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Next.js: 16+](https://img.shields.io/badge/Next.js-15+-black.svg)](https://nextjs.org/)
+[![Next.js: 16+](https://img.shields.io/badge/Next.js-16+-black.svg)](https://nextjs.org/)
 
 ## 1. Project Overview
 This project is an advanced, full-stack **Hybrid Intelligent Architecture** designed to revolutionize the way players approach the drafting phase in League of Legends (LoL). By combining state-of-the-art **Machine Learning (ML)**, **Expert Heuristic Systems**, and **Explainable AI (XAI)**, it provides a powerful dashboard for real-time match prediction, strategic guidance, and academic-grade data analysis.
