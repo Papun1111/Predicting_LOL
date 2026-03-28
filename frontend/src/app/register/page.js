@@ -30,8 +30,10 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#010a13] text-white flex flex-col relative overflow-hidden">
+    <main className="min-h-screen text-white flex flex-col relative overflow-hidden">
       <Navbar />
+
+      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-[#e60000]/10 rounded-full blur-[120px]" />
 
       <div className="flex-1 flex items-center justify-center px-4">
         <motion.div
@@ -39,55 +41,55 @@ export default function RegisterPage() {
           animate={{ opacity: 1, y: 0 }}
           className="w-full max-w-md p-8 relative"
           style={{
-            background: "rgba(6, 20, 35, 0.6)",
+            background: "rgba(10, 10, 10, 0.6)",
             backdropFilter: "blur(12px)",
-            border: "1px solid rgba(0, 242, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
           }}
         >
-           {/* Aesthetic Corner Accents */}
-           <div className="absolute top-0 left-0 w-2 h-2 bg-[#00f2ff]" />
-           <div className="absolute top-0 right-0 w-2 h-2 bg-[#00f2ff]" />
-           <div className="absolute bottom-0 left-0 w-2 h-2 bg-[#00f2ff]" />
-           <div className="absolute bottom-0 right-0 w-2 h-2 bg-[#00f2ff]" />
+             {/* Aesthetic Corner Accents */}
+             <div className="absolute top-0 left-0 w-2 h-2 bg-[#e60000]" />
+             <div className="absolute top-0 right-0 w-2 h-2 bg-[#e60000]" />
+             <div className="absolute bottom-0 left-0 w-2 h-2 bg-[#e60000]" />
+             <div className="absolute bottom-0 right-0 w-2 h-2 bg-[#e60000]" />
 
-          <h1 className="text-3xl font-black text-center mb-8 tracking-widest text-[#00f2ff]">
-            NEW AGENT
-          </h1>
+            <h1 className="text-3xl font-black text-center mb-8 tracking-widest text-[#e60000]">
+              NEW AGENT
+            </h1>
 
           {error && <div className="text-red-500 text-center mb-4 font-mono text-sm">{error}</div>}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative group">
-              <User className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[#00f2ff]" size={20} />
+              <User className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[#e60000]" size={20} />
               <input
                 type="text"
                 placeholder="CODENAME (USERNAME)"
                 required
-                className="w-full bg-[#010a13]/50 border border-white/10 pl-12 pr-4 py-3 text-white focus:border-[#00f2ff] outline-none font-mono text-sm"
+                className="w-full bg-[#0a0a0a]/50 border border-white/10 pl-12 pr-4 py-3 text-white focus:border-[#e60000]/50 outline-none font-mono text-sm transition-colors"
                 value={formData.username}
                 onChange={(e) => setFormData({ ...formData, username: e.target.value })}
               />
             </div>
             
             <div className="relative group">
-              <Mail className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[#00f2ff]" size={20} />
+              <Mail className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[#e60000]" size={20} />
               <input
                 type="email"
                 placeholder="EMAIL ADDRESS"
                 required
-                className="w-full bg-[#010a13]/50 border border-white/10 pl-12 pr-4 py-3 text-white focus:border-[#00f2ff] outline-none font-mono text-sm"
+                className="w-full bg-[#0a0a0a]/50 border border-white/10 pl-12 pr-4 py-3 text-white focus:border-[#e60000]/50 outline-none font-mono text-sm transition-colors"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
 
             <div className="relative group">
-              <Lock className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[#00f2ff]" size={20} />
+              <Lock className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[#e60000]" size={20} />
               <input
                 type="password"
                 placeholder="PASSWORD"
                 required
-                className="w-full bg-[#010a13]/50 border border-white/10 pl-12 pr-4 py-3 text-white focus:border-[#00f2ff] outline-none font-mono text-sm"
+                className="w-full bg-[#0a0a0a]/50 border border-white/10 pl-12 pr-4 py-3 text-white focus:border-[#e60000]/50 outline-none font-mono text-sm transition-colors"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
@@ -97,7 +99,7 @@ export default function RegisterPage() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               disabled={loading}
-              className="w-full bg-[#00f2ff] text-[#010a13] font-bold py-3 uppercase tracking-widest hover:bg-[#00c8d6] transition-colors"
+              className="w-full bg-[#e60000] text-white font-bold py-3 uppercase tracking-widest hover:bg-[#cc0000] transition-colors"
             >
               {loading ? "REGISTERING..." : "INITIALIZE"}
             </motion.button>
@@ -105,7 +107,7 @@ export default function RegisterPage() {
 
           <div className="mt-6 text-center text-sm text-slate-500">
             ALREADY AN AGENT?{" "}
-            <Link href="/login" className="text-[#00f2ff] hover:underline font-bold">
+            <Link href="/login" className="text-[#e60000] hover:underline font-bold">
               LOGIN HERE
             </Link>
           </div>

@@ -34,12 +34,12 @@ export default function ChampionDetailPage() {
   }, [id]);
 
   if (loading) return (
-     <div className="min-h-screen flex flex-col items-center justify-center text-[#00f2ff]">
+     <div className="min-h-screen flex flex-col items-center justify-center text-[#fbbf24]">
        <motion.div 
          animate={{ rotate: 360 }}
          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
          className="text-6xl mb-4"
-         style={{ filter: "drop-shadow(0 0 20px #00f2ff)" }}
+         style={{ filter: "drop-shadow(0 0 20px #fbbf24)" }}
        >
          ❖
        </motion.div>
@@ -60,8 +60,10 @@ export default function ChampionDetailPage() {
   const isGoodWinRate = winRate >= 0.5;
 
   return (
-    <main className="min-h-screen text-white pb-20 relative overflow-hidden selection:bg-[#00f2ff]/30">
+    <main className="min-h-screen text-white pb-20 relative overflow-hidden selection:bg-[#fbbf24]/30">
       
+      {/* Contextual Route Background Glow (Gold) */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#fbbf24]/5 rounded-full blur-[150px] pointer-events-none z-[-1]" />
       {/* 1) Heavy Background Parallax Image */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-30 mix-blend-screen overflow-hidden">
         <motion.div
@@ -96,9 +98,9 @@ export default function ChampionDetailPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             onClick={() => router.back()}
-            className="flex items-center gap-3 text-slate-300 hover:text-[#00f2ff] transition-colors mb-10 group uppercase text-xs font-bold tracking-[0.2em]"
+            className="flex items-center gap-3 text-slate-300 hover:text-[#fbbf24] transition-colors mb-10 group uppercase text-xs font-bold tracking-[0.2em]"
           >
-            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center bg-black/50 backdrop-blur-md group-hover:border-[#00f2ff] transition-colors shadow-lg">
+            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center bg-black/50 backdrop-blur-md group-hover:border-[#fbbf24] transition-colors shadow-lg">
               <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform" />
             </div>
             Back to Roster
@@ -136,9 +138,9 @@ export default function ChampionDetailPage() {
                 className="grid grid-cols-3 gap-3"
               >
                 <div className="bg-black/60 backdrop-blur-xl border border-white/5 p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-2xl relative overflow-hidden">
-                  <div className={`absolute top-0 w-full h-[2px] ${isGoodWinRate ? 'bg-[#00f2ff]' : 'bg-[#ef4444]'} opacity-50 shadow-[0_0_10px_currentColor]`} />
+                  <div className={`absolute top-0 w-full h-[2px] ${isGoodWinRate ? 'bg-[#fbbf24]' : 'bg-[#ef4444]'} opacity-50 shadow-[0_0_10px_currentColor]`} />
                   <span className="text-[9px] uppercase tracking-widest text-slate-500 mb-1">Win Rate</span>
-                  <span className={`text-2xl font-black ${isGoodWinRate ? 'text-[#00f2ff]' : 'text-[#ef4444]'} drop-shadow-[0_0_10px_currentColor]`}>
+                  <span className={`text-2xl font-black ${isGoodWinRate ? 'text-[#fbbf24]' : 'text-[#ef4444]'} drop-shadow-[0_0_10px_currentColor]`}>
                     {(winRate * 100).toFixed(1)}%
                   </span>
                 </div>
@@ -170,7 +172,7 @@ export default function ChampionDetailPage() {
               >
                 {/* Massive Typography Header */}
                 <div className="mb-10 lg:mt-8">
-                  <h2 className="text-[#00f2ff] font-mono text-xs tracking-[0.3em] uppercase mb-2">Subject ID: {champ.key}</h2>
+                  <h2 className="text-[#fbbf24] font-mono text-xs tracking-[0.3em] uppercase mb-2">Subject ID: {champ.key}</h2>
                   <h1 className="text-7xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85] text-white drop-shadow-2xl">
                     {champ.name}
                   </h1>
@@ -198,9 +200,9 @@ export default function ChampionDetailPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                   
                   {/* Synergy Terminal */}
-                  <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:border-[#00f2ff]/30 transition-colors">
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#00f2ff]/5 to-transparent pointer-events-none" />
-                    <h3 className="text-[#00f2ff] font-bold text-lg mb-4 flex items-center gap-2 border-b border-white/5 pb-4 uppercase tracking-widest">
+                  <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:border-[#fbbf24]/30 transition-colors">
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#fbbf24]/5 to-transparent pointer-events-none" />
+                    <h3 className="text-[#fbbf24] font-bold text-lg mb-4 flex items-center gap-2 border-b border-white/5 pb-4 uppercase tracking-widest">
                       <Sparkles size={18} /> High Synergy
                     </h3>
                     <div className="space-y-2">
@@ -209,7 +211,7 @@ export default function ChampionDetailPage() {
                           <div className="flex items-center gap-3">
                             <span className="text-white font-bold">{syn.id} <span className="text-slate-500 font-light text-xs ml-1">(Partner)</span></span>
                           </div>
-                          <span className="text-[#00f2ff] font-mono font-bold">
+                          <span className="text-[#fbbf24] font-mono font-bold">
                             {(syn.winRate * 100).toFixed(1)}% WR
                           </span>
                         </div>
@@ -257,7 +259,7 @@ export default function ChampionDetailPage() {
                       <span className="block text-slate-500 mb-2 uppercase tracking-[0.2em] text-[10px] font-bold">Riot Node ID</span>
                       <span className="text-white font-mono text-lg inline-flex items-center gap-2">
                         {champ.id}
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00f2ff] animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24] animate-pulse" />
                       </span>
                     </div>
                     <div className="col-span-2">
@@ -273,7 +275,7 @@ export default function ChampionDetailPage() {
                       href={`https://universe.leagueoflegends.com/en_US/champion/${champ.key.toLowerCase()}/`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[#00f2ff] hover:text-white transition-colors uppercase font-bold text-xs tracking-[0.1em] px-6 py-3 border border-[#00f2ff]/30 rounded-full hover:bg-[#00f2ff]/10 hover:border-[#00f2ff]"
+                      className="inline-flex items-center gap-2 text-[#fbbf24] hover:text-black transition-colors uppercase font-bold text-xs tracking-[0.1em] px-6 py-3 border border-[#fbbf24]/30 rounded-full hover:bg-[#fbbf24] hover:border-[#fbbf24]"
                     >
                       Authenticate Full Lore File <span>↗</span>
                     </a>

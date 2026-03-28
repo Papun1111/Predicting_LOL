@@ -62,11 +62,11 @@ export default function HistoryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#010a13] text-white pb-20 selection:bg-[#00f2ff]/30 relative overflow-hidden">
+    <main className="min-h-screen text-white pb-20 selection:bg-[#10b981]/30 relative overflow-hidden">
       
-      {/* Background Ambience */}
+      {/* Background Ambience / Route Glow (Emerald) */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[20%] -left-[10%] w-[40vw] h-[40vw] rounded-full bg-[#00f2ff]/5 blur-[120px]" />
+        <div className="absolute top-[20%] -left-[10%] w-[40vw] h-[40vw] rounded-full bg-[#10b981]/5 blur-[120px]" />
         <div className="absolute bottom-[10%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-blue-900/10 blur-[150px]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)]" />
       </div>
@@ -81,13 +81,13 @@ export default function HistoryPage() {
             <div>
               <motion.div 
                 initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00f2ff]/10 border border-[#00f2ff]/30 text-[#00f2ff] mb-4 text-xs font-bold tracking-widest uppercase"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 border border-[#10b981]/30 text-[#10b981] mb-4 text-xs font-bold tracking-widest uppercase"
               >
                 <Activity size={14} className="animate-pulse" />
                 Database Synchronized
               </motion.div>
               <h1 className="text-4xl md:text-5xl font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">
-                Combat <span className="text-[#00f2ff]">Logs</span>
+                Combat <span className="text-[#10b981]">Logs</span>
               </h1>
             </div>
           </div>
@@ -101,8 +101,8 @@ export default function HistoryPage() {
 
           {loading && (
             <div className="flex flex-col items-center justify-center py-20 gap-4">
-              <div className="w-12 h-12 border-4 border-[#00f2ff]/20 border-t-[#00f2ff] rounded-full animate-spin" />
-              <p className="text-[#00f2ff] font-mono text-sm uppercase tracking-widest animate-pulse">Decrypting Records...</p>
+              <div className="w-12 h-12 border-4 border-[#10b981]/20 border-t-[#10b981] rounded-full animate-spin" />
+              <p className="text-[#10b981] font-mono text-sm uppercase tracking-widest animate-pulse">Decrypting Records...</p>
             </div>
           )}
 
@@ -115,7 +115,7 @@ export default function HistoryPage() {
               <h3 className="text-xl font-bold text-slate-300 mb-2">No Drafts Analyzed</h3>
               <p className="text-slate-500 max-w-sm mx-auto mb-6">You haven&apos;t run any predictions yet. Head to the Predictor to analyze your first match.</p>
               <Link href="/predict">
-                <button className="px-6 py-3 bg-[#00f2ff] text-black font-bold uppercase tracking-wider rounded hover:bg-white transition-colors">
+                <button className="px-6 py-3 bg-[#10b981] text-black font-bold uppercase tracking-wider rounded hover:bg-white transition-colors">
                   Initiate Draft
                 </button>
               </Link>
@@ -216,7 +216,7 @@ export default function HistoryPage() {
                         {topFactor ? (
                           <>
                             <span className="text-sm font-bold text-white truncate">{topFactor.factor}</span>
-                            <span className={`text-xs font-mono font-bold ${topFactor.impact > 0 ? "text-[#00f2ff]" : "text-red-400"}`}>
+                            <span className={`text-xs font-mono font-bold ${topFactor.impact > 0 ? "text-[#10b981]" : "text-red-400"}`}>
                               {topFactor.impact > 0 ? '+' : ''}{topFactor.impact} Impact
                             </span>
                           </>

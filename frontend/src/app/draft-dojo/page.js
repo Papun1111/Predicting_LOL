@@ -80,12 +80,12 @@ export default function DraftDojoPage() {
     // Final Prediction
     try {
       const res = await api.post('/predict', {
-        team1: padTeam(b), // Use padTeam here too just in case
+        team1: padTeam(b), // Use padTeam here to ensure exactly 5 champs
         team2: padTeam(r)
       });
       setWinProb(res.data.winProbability);
     } catch (e) {
-      console.error("Prediction failed at end game:", e);
+      console.error("Prediction failed at end game:", e.response?.data || e.message);
     }
   };
 
@@ -94,11 +94,11 @@ export default function DraftDojoPage() {
     if (gameState === 'DRAFTING' && turn === 'AI') {
       const makeAiMove = async () => {
         try {
-          // A. Prepare Data with Padding
+          // A. Prepare Data (No padding required for recommendation)
           const payload = {
-            team1: padTeam(redTeam),   // AI's current team (padded)
-            team2: padTeam(blueTeam),  // User's current team (padded)
-            side: 'red'                // Hint to backend (optional)
+            myTeam: redTeam.map(c => c.id),    // AI's current team (unpadded)
+            enemyTeam: blueTeam.map(c => c.id), // User's current team (unpadded)
+            side: 'red'                        // Hint to backend (optional)
           };
 
           console.log("🤖 AI Thinking...", payload);
@@ -149,7 +149,7 @@ export default function DraftDojoPage() {
           }, 1500);
 
         } catch (err) {
-          console.error("AI Brain Freeze:", err);
+          console.error("AI Brain Freeze:", err.response?.data || err.message);
           fallbackRandomPick();
         }
       };
@@ -202,7 +202,9 @@ export default function DraftDojoPage() {
   };
 
   return (
-    <main className="min-h-screen text-white pb-20 selection:bg-[#00f2ff]/30 relative overflow-hidden">
+    <main className="min-h-screen text-white pb-20 selection:bg-[#a855f7]/30 relative overflow-hidden">
+      {/* Contextual Route Background Glow (Fuchsia) */}
+      <div className="absolute top-[-10%] right-[10%] w-[600px] h-[600px] bg-[#a855f7]/10 rounded-full blur-[150px] pointer-events-none z-[-1]" />
       <div className="relative z-10 w-full h-full flex flex-col">
         <Navbar />
 
@@ -270,9 +272,9 @@ export default function DraftDojoPage() {
                 className="flex flex-col items-center justify-center flex-1 text-center py-20"
               >
                 <div className="relative mb-8">
-                   <div className="absolute -inset-10 bg-[#00f2ff]/20 blur-[100px] rounded-full pointer-events-none" />
-                   <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter text-white drop-shadow-[0_0_20px_rgba(0,242,255,0.3)]">
-                     DRAFT <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] to-[#a855f7]">DOJO</span>
+                   <div className="absolute -inset-10 bg-[#a855f7]/20 blur-[100px] rounded-full pointer-events-none" />
+                   <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter text-white drop-shadow-[0_0_20px_rgba(168,85,247,0.3)]">
+                     DRAFT <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-[#d946ef] to-[#ec4899]">DOJO</span>
                    </h1>
                 </div>
                 <p className="text-xl md:text-2xl text-slate-400 mb-12 max-w-2xl font-light">
@@ -280,11 +282,11 @@ export default function DraftDojoPage() {
                 </p>
                 <button 
                   onClick={() => setGameState('DRAFTING')}
-                  className="group relative px-12 py-5 bg-transparent overflow-hidden rounded-full font-bold uppercase tracking-[0.2em] text-white border border-[#00f2ff]/50 shadow-[0_0_30px_rgba(0,242,255,0.15)] hover:shadow-[0_0_50px_rgba(0,242,255,0.4)] transition-all duration-500 hover:scale-105"
+                  className="group relative px-12 py-5 bg-transparent overflow-hidden rounded-full font-bold uppercase tracking-[0.2em] text-white border border-[#a855f7]/50 shadow-[0_0_30px_rgba(168,85,247,0.15)] hover:shadow-[0_0_50px_rgba(168,85,247,0.4)] transition-all duration-500 hover:scale-105"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#00f2ff]/20 to-[#a855f7]/20 group-hover:from-[#00f2ff]/40 group-hover:to-[#a855f7]/40 transition-colors" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#a855f7]/20 to-[#ec4899]/20 group-hover:from-[#a855f7]/40 group-hover:to-[#ec4899]/40 transition-colors" />
                   <span className="relative z-10 flex items-center gap-3">
-                    <Sword size={20} className="text-[#00f2ff]" /> Initialize Simulation
+                    <Sword size={20} className="text-[#a855f7]" /> Initialize Simulation
                   </span>
                 </button>
               </motion.div>
@@ -303,13 +305,13 @@ export default function DraftDojoPage() {
                 {/* LEFT: CHAMPION SELECTOR */}
                 <div className="lg:col-span-8 flex flex-col h-full">
                    <div className="relative group mb-6">
-                     <div className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[#00f2ff] transition-colors">
+                     <div className="absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[#a855f7] transition-colors">
                        <Shield size={20} />
                      </div>
                      <input 
                         type="text"
                         placeholder="Scan champion database..."
-                        className="w-full bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-white font-mono text-sm focus:border-[#00f2ff]/50 focus:shadow-[0_0_20px_rgba(0,242,255,0.2)] outline-none transition-all"
+                        className="w-full bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-white font-mono text-sm focus:border-[#a855f7]/50 focus:shadow-[0_0_20px_rgba(168,85,247,0.2)] outline-none transition-all"
                         onChange={(e) => setSearch(e.target.value)}
                         value={search}
                      />
@@ -333,7 +335,7 @@ export default function DraftDojoPage() {
                                 className={`relative aspect-[1/1.2] rounded-xl overflow-hidden border transition-all duration-300 ${
                                   isTaken ? 'grayscale border-transparent pointer-events-none' : 
                                   turn === 'AI' ? 'cursor-not-allowed border-white/5' :
-                                  'hover:-translate-y-1 hover:border-[#00f2ff]/80 hover:shadow-[0_0_20px_rgba(0,242,255,0.3)] border-white/10 cursor-pointer group'
+                                  'hover:-translate-y-1 hover:border-[#a855f7]/80 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] border-white/10 cursor-pointer group'
                                 }`}
                               >
                                 <Image 
@@ -344,7 +346,7 @@ export default function DraftDojoPage() {
                                   alt={champ.name}
                                 />
                                 <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent" />
-                                <div className="absolute inset-0 bg-[#00f2ff] opacity-0 group-hover:opacity-20 mix-blend-overlay transition-opacity" />
+                                <div className="absolute inset-0 bg-[#a855f7] opacity-0 group-hover:opacity-20 mix-blend-overlay transition-opacity" />
                                 <div className="absolute bottom-2 inset-x-0 text-center text-[9px] uppercase tracking-widest font-black text-white px-1">
                                   {champ.name}
                                 </div>
@@ -363,7 +365,7 @@ export default function DraftDojoPage() {
                     
                     <div className="p-4 border-b border-white/10 flex items-center justify-between bg-black/50 z-10">
                       <div className="flex items-center gap-3">
-                        <Terminal size={16} className="text-[#00f2ff]" />
+                        <Terminal size={16} className="text-[#a855f7]" />
                         <span className="font-mono text-[10px] uppercase text-slate-400 tracking-[0.2em] font-bold">Terminal Link</span>
                       </div>
                       <div className="flex items-center gap-2">

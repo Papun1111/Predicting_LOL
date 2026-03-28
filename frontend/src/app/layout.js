@@ -13,34 +13,33 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Special+Elite&display=swap" rel="stylesheet" />
       </head>
-      <body className={`bg-[#010a13] text-white selection:bg-[#00f2ff] selection:text-black`}>
+      <body className={`bg-[#050505] text-white selection:bg-[#e60000] selection:text-white`}>
         
-        {/* GLOBAL DYNAMIC BACKGROUND */}
-        <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-[#010a13]">
+        {/* GLOBAL DYNAMIC BACKGROUND — Monochrome + Red (matches landing page) */}
+        <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-[#050505]">
           
-          {/* Animated Gradient Orbs */}
-          <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#00f2ff]/15 rounded-full blur-[120px] mix-blend-screen animate-blob" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] bg-[#ef4444]/10 rounded-full blur-[150px] mix-blend-screen animate-blob animation-delay-2000" />
-          <div className="absolute top-[40%] left-[60%] w-[400px] h-[400px] bg-[#9333ea]/15 rounded-full blur-[100px] mix-blend-screen animate-blob animation-delay-4000" />
+          {/* Subtle Ambient Orbs (B&W + Red) */}
+          <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] mix-blend-screen animate-blob" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] bg-[#e60000]/8 rounded-full blur-[150px] mix-blend-screen animate-blob animation-delay-2000" />
+          <div className="absolute top-[40%] left-[60%] w-[400px] h-[400px] bg-white/3 rounded-full blur-[100px] mix-blend-screen animate-blob animation-delay-4000" />
           
-          {/* Hex-Grid / Tech Grid Overlay */}
+          {/* Neural Grid Overlay */}
           <div 
-            className="absolute inset-0 opacity-[0.05]" 
+            className="absolute inset-0 opacity-[0.04]" 
             style={{ 
               backgroundImage: `
                 linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px)
               `,
-              backgroundSize: "60px 60px",
+              backgroundSize: "50px 50px",
               backgroundPosition: "center center",
+              maskImage: "radial-gradient(circle at center, black 40%, transparent 80%)",
+              WebkitMaskImage: "radial-gradient(circle at center, black 40%, transparent 80%)",
             }} 
-          >
-            {/* Pulsing Grid Scanline Effect */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00f2ff]/5 to-transparent h-[200%] animate-scanline" />
-          </div>
+          />
 
-          {/* Vignette border to draw eyes to center */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#010a13_80%)]" />
+          {/* Vignette */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050505_80%)]" />
         </div>
 
         {/* Page Content */}

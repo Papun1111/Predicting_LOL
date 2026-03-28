@@ -180,14 +180,17 @@ export default function PredictPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#010a13] text-white pb-20">
+    <main className="min-h-screen text-white pb-20 relative">
       <Navbar />
 
-      <div className="container mx-auto px-4 py-10 max-w-6xl">
+      {/* Contextual Route Background Glow (Cyan) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-[#00f2ff]/5 blur-[120px] pointer-events-none z-[-1]" />
+
+      <div className="container mx-auto px-4 py-10 max-w-6xl relative z-10">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-black text-center mb-12 tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] to-[#0061ff]"
+          className="text-4xl md:text-5xl font-black text-center mb-12 tracking-widest text-white drop-shadow-[0_0_20px_rgba(0,242,255,0.4)]"
         >
           MATCH PREDICTOR
         </motion.h1>
@@ -195,11 +198,11 @@ export default function PredictPage() {
         {/* The Draft Arena */}
         <div className="grid lg:grid-cols-2 gap-12 relative">
           
-          <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 bg-[#010a13] border border-[#00f2ff] rounded-full items-center justify-center font-black italic text-[#00f2ff] shadow-[0_0_20px_#00f2ff]">
+          <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 bg-[#050505] border border-white/10 rounded-full items-center justify-center font-black italic text-[#00f2ff] shadow-[0_0_20px_rgba(0,242,255,0.2)]">
             VS
           </div>
 
-          <GlassCard title="BLUE TEAM" className="border-t-4 border-t-[#00f2ff] flex flex-col h-full">
+          <GlassCard title="BLUE TEAM" accentColor="#3b82f6" className="border-t-4 border-t-[#3b82f6] flex flex-col h-full">
             <div className="flex-grow">
               <ChampionPicker teamName="Ally Draft" selectedIds={blueTeam} onSelect={setBlueTeam} color="#00f2ff" />
             </div>
@@ -210,7 +213,7 @@ export default function PredictPage() {
             )}
           </GlassCard>
 
-          <GlassCard title="RED TEAM" className="border-t-4 border-t-[#ef4444] flex flex-col h-full">
+          <GlassCard title="RED TEAM" accentColor="#ef4444" className="border-t-4 border-t-[#ef4444] flex flex-col h-full">
             <div className="flex-grow">
               <ChampionPicker teamName="Enemy Draft" selectedIds={redTeam} onSelect={setRedTeam} color="#ef4444" />
             </div>
@@ -230,7 +233,7 @@ export default function PredictPage() {
             </motion.div>
           )}
           
-          <PredictButton onClick={handlePredict} loading={loading} />
+          <PredictButton onClick={handlePredict} loading={loading} accentColor="#00f2ff" />
         </div>
 
         {/* Results Section */}
@@ -251,13 +254,13 @@ export default function PredictPage() {
               )}
 
               <div className="grid md:grid-cols-2 gap-8 items-start">
-                <GlassCard>
-                  <h3 className="text-center text-[#00f2ff] font-bold uppercase tracking-widest mb-4">Win Probability</h3>
+                <GlassCard accentColor="#00f2ff">
+                  <h3 className="text-center text-white font-bold uppercase tracking-widest mb-4">Win Probability</h3>
                   <WinProbability probability={prediction.winProbability} />
                 </GlassCard>
 
-                <GlassCard>
-                  <h3 className="text-center text-[#c8aa6e] font-bold uppercase tracking-widest mb-4">Analysis Details</h3>
+                <GlassCard accentColor="#00f2ff">
+                  <h3 className="text-center text-white font-bold uppercase tracking-widest mb-4">Analysis Details</h3>
                   <PredictionResult result={prediction} />
                 </GlassCard>
               </div>

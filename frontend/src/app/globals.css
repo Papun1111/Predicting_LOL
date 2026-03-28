@@ -1,35 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --neon-blue: #ffffff;
-  --neon-gold: #888888;
+  --accent-red: #e60000;
   --dark-void: #050505;
+  --dark-surface: #0a0a0a;
+  --text-primary: #eeeeee;
+  --text-secondary: #94a3b8;
 }
 
 body {
-  background: #050505;
-  color: #eeeeee;
+  background: var(--dark-void);
+  color: var(--text-primary);
   overflow-x: hidden;
   font-family: "Averia Libre", system-ui;
   font-weight: 400;
   font-style: italic;
 }
 
-/* Custom glowing scrollbar (monochrome) */
+/* Monochrome scrollbar matching landing page */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--dark-void);
 }
 ::-webkit-scrollbar-thumb {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  background: #333;
+  border-radius: 0px;
 }
 
-/* --- Added for Upgraded Animated Background --- */
+::selection {
+  background: var(--accent-red);
+  color: #ffffff;
+}
 
+/* Neural Grid Background (from landing page) */
+.bg-neural-grid {
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+/* Film ribbon animation (from landing page) */
+@keyframes repeating-ribbon {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- Animated Background Utilities --- */
 @keyframes blob {
   0% { transform: translate(0px, 0px) scale(1); }
   33% { transform: translate(30px, -50px) scale(1.1); }
@@ -67,6 +88,9 @@ body {
   .animate-float-scale {
     animation: floatScale 8s ease-in-out infinite;
   }
+  .animate-repeating-ribbon {
+    animation: repeating-ribbon 20s linear infinite;
+  }
   .animation-delay-2000 {
     animation-delay: 2s;
   }
@@ -75,7 +99,7 @@ body {
   }
 }
 
-/* Base custom classes for new aesthetics */
+/* Subtle pattern background */
 .bg-dragon-scales {
   background-image: radial-gradient(circle at center, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px),
                     radial-gradient(circle at center, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px);

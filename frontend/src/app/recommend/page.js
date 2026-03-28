@@ -45,15 +45,18 @@ export default function RecommendPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#010a13] text-white pb-20">
+    <main className="min-h-screen text-white pb-20 relative">
       <Navbar />
 
-      <div className="container mx-auto px-4 py-10 grid lg:grid-cols-12 gap-8">
+      {/* Contextual Route Background Glow (Fuchsia) */}
+      <div className="absolute top-0 right-0 w-full max-w-2xl h-[500px] bg-[#a855f7]/5 blur-[150px] pointer-events-none z-[-1]" />
+
+      <div className="container mx-auto px-4 py-10 grid lg:grid-cols-12 gap-8 relative z-10">
         
         {/* LEFT COLUMN: Draft Input */}
         <div className="lg:col-span-5 space-y-8">
           <div>
-            <h1 className="text-3xl font-black mb-6 tracking-widest text-[#00f2ff]">
+            <h1 className="text-3xl md:text-4xl font-black mb-6 tracking-widest text-white drop-shadow-[0_0_20px_rgba(168,85,247,0.4)]">
               SMART DRAFTER
             </h1>
             <p className="text-slate-400 mb-8">
@@ -61,7 +64,7 @@ export default function RecommendPage() {
             </p>
           </div>
 
-          <GlassCard title="YOUR TEAM (Select 1-4)">
+          <GlassCard title="YOUR TEAM (Select 1-4)" accentColor="#a855f7">
             <ChampionPicker 
               teamName="Allies" 
               selectedIds={myTeam} 
@@ -70,7 +73,7 @@ export default function RecommendPage() {
             />
           </GlassCard>
 
-          <GlassCard title="ENEMY TEAM (Optional)">
+          <GlassCard title="ENEMY TEAM (Optional)" accentColor="#a855f7">
             <ChampionPicker 
               teamName="Enemies" 
               selectedIds={enemyTeam} 
@@ -83,20 +86,21 @@ export default function RecommendPage() {
             onClick={handleRecommend} 
             loading={loading} 
             label="ANALYZE SYNERGY" 
+            accentColor="#a855f7"
           />
         </div>
 
         {/* RIGHT COLUMN: Suggestions Output */}
         <div className="lg:col-span-7">
           <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
-            <Sparkles className="text-[#c8aa6e]" />
-            <span className="tracking-widest text-[#c8aa6e]">AI RECOMMENDATIONS</span>
+            <Sparkles className="text-[#a855f7]" />
+            <span className="tracking-widest text-white">AI RECOMMENDATIONS</span>
           </h2>
 
           <div className="space-y-4">
             {loading ? (
-              <div className="h-64 flex flex-col items-center justify-center text-cyan-400 gap-4">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400"></div>
+              <div className="h-64 flex flex-col items-center justify-center text-[#a855f7] gap-4">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#a855f7]"></div>
                 <p className="animate-pulse">AI is calculating counters...</p>
               </div>
             ) : (
@@ -111,18 +115,18 @@ export default function RecommendPage() {
                       exit={{ opacity: 0, x: -50 }}
                       transition={{ delay: index * 0.1 }}
                     >
-                      <GlassCard className="flex items-center gap-6 hover:bg-white/5 transition-colors group">
-                        <div className="text-4xl font-black text-[#ffffff]/10 group-hover:text-[#00f2ff]/20 transition-colors">
+                      <GlassCard accentColor="#a855f7" className="flex items-center gap-6 hover:bg-white/5 transition-colors group">
+                        <div className="text-4xl font-black text-[#ffffff]/10 group-hover:text-[#a855f7]/30 transition-colors">
                           #{index + 1}
                         </div>
 
                         <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-white group-hover:text-[#00f2ff] transition-colors">
+                          <h3 className="text-2xl font-bold text-white group-hover:text-[#a855f7] transition-colors">
                             {champ.name}
                           </h3>
                           <div className="flex gap-2 mt-2">
                             {champ.roles && champ.roles.map(role => (
-                              <span key={role} className="text-xs px-2 py-1 rounded bg-[#00f2ff]/10 text-[#00f2ff] border border-[#00f2ff]/20">
+                              <span key={role} className="text-xs px-2 py-1 rounded bg-[#a855f7]/10 text-[#a855f7] border border-[#a855f7]/20">
                                 {role}
                               </span>
                             ))}
@@ -131,7 +135,7 @@ export default function RecommendPage() {
 
                         <div className="text-right">
                           <div className="text-xs uppercase text-slate-500 tracking-widest">Synergy Score</div>
-                          <div className="text-3xl font-mono font-bold text-[#00f2ff]">
+                          <div className="text-3xl font-mono font-bold text-[#a855f7]">
                             {typeof champ.score === 'number' ? champ.score.toFixed(1) : "N/A"}
                           </div>
                         </div>

@@ -7,9 +7,9 @@ const CustomTooltip = ({ active, payload }) => {
     const data = payload[0].payload;
     const isPositive = data.impact > 0;
     return (
-      <div className="bg-[#020813]/95 border border-[#00f2ff]/30 p-4 rounded backdrop-blur-md shadow-2xl font-mono">
+      <div className="bg-[#0a0a0a]/95 border border-white/10 p-4 rounded backdrop-blur-md shadow-2xl font-mono">
         <p className="text-white font-bold mb-2">{data.factor}</p>
-        <p className={`text-lg font-black ${isPositive ? 'text-[#00f2ff]' : 'text-red-500'}`}>
+        <p className={`text-lg font-black ${isPositive ? 'text-blue-400' : 'text-red-500'}`}>
           {isPositive ? '+' : ''}{data.impact} Impact Score
         </p>
       </div>
@@ -22,11 +22,11 @@ export default function XRayDashboard({ explanations }) {
   if (!explanations || explanations.length === 0) return null;
 
   return (
-    <div className="w-full bg-[#031118]/80 border border-[#00f2ff]/20 p-6 rounded-xl backdrop-blur-md mt-8 shadow-[0_0_30px_rgba(0,242,255,0.05)]">
-      <div className="flex items-center gap-3 mb-6 border-b border-[#00f2ff]/10 pb-4">
-        <Terminal className="text-[#00f2ff]" />
+    <div className="w-full bg-[#0a0a0a]/80 border border-white/8 p-6 rounded-xl backdrop-blur-md mt-8 shadow-2xl">
+      <div className="flex items-center gap-3 mb-6 border-b border-white/8 pb-4">
+        <Terminal className="text-[#e60000]" />
         <h3 className="text-2xl font-black text-white uppercase tracking-widest">
-          SHAP <span className="text-[#00f2ff]">X-Ray Analysis</span>
+          SHAP <span className="text-[#e60000]">X-Ray Analysis</span>
         </h3>
       </div>
       
@@ -50,14 +50,14 @@ export default function XRayDashboard({ explanations }) {
               tick={{ fill: '#94a3b8', fontSize: 11, fontFamily: 'monospace' }}
               width={160}
             />
-            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0,242,255,0.05)' }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.03)' }} />
             <ReferenceLine x={0} stroke="rgba(255,255,255,0.2)" strokeDasharray="3 3" />
             <Bar dataKey="impact" radius={[0, 4, 4, 0]} barSize={20}>
               {explanations.map((entry, index) => (
                 <Cell 
                   key={`cell-${index}`} 
-                  fill={entry.impact > 0 ? '#00f2ff' : '#ef4444'} 
-                  style={{ filter: `drop-shadow(0 0 5px ${entry.impact > 0 ? 'rgba(0,242,255,0.4)' : 'rgba(239,68,68,0.4)'})` }}
+                  fill={entry.impact > 0 ? '#3b82f6' : '#ef4444'} 
+                  style={{ filter: `drop-shadow(0 0 5px ${entry.impact > 0 ? 'rgba(59,130,246,0.4)' : 'rgba(239,68,68,0.4)'})` }}
                 />
               ))}
             </Bar>

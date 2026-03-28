@@ -54,12 +54,12 @@ export default function TierListPage() {
   const tierOrder = ['S+', 'S', 'A', 'B', 'C', 'D'];
 
   if (loading) return (
-    <div className="min-h-screen bg-[#010a13] flex flex-col items-center justify-center text-[#00f2ff]">
+    <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center text-[#f97316]">
       <motion.div 
         animate={{ rotate: 360 }}
         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
         className="text-6xl mb-4"
-        style={{ filter: "drop-shadow(0 0 20px #00f2ff)" }}
+        style={{ filter: "drop-shadow(0 0 20px #f97316)" }}
       >
         ❖
       </motion.div>
@@ -68,7 +68,11 @@ export default function TierListPage() {
   );
 
   return (
-    <main className="min-h-screen text-white pb-20 selection:bg-[#00f2ff]/30 relative overflow-hidden">
+    <main className="min-h-screen text-white pb-20 selection:bg-[#f97316]/30 relative overflow-hidden">
+      
+      {/* Contextual Route Background Glow (Orange) */}
+      <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#f97316]/10 rounded-full blur-[150px] pointer-events-none z-[-1]" />
+      
       <div className="relative z-10 w-full">
         <Navbar />
 
@@ -91,10 +95,10 @@ export default function TierListPage() {
               transition={{ duration: 0.5, type: "spring" }}
               className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6 relative inline-block"
             >
-              <span className="relative z-10 drop-shadow-[0_0_30px_rgba(0,242,255,0.3)]">Algorithm</span>
+              <span className="relative z-10 drop-shadow-[0_0_30px_rgba(249,115,22,0.3)]">Algorithm</span>
               <br className="md:hidden" />
               {/* === ANIMATED GRADIENT TEXT === */}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#a855f7] to-[#ef4444] ml-0 md:ml-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f97316] via-[#ea580c] to-[#c2410c] ml-0 md:ml-4">
                 Tier List
               </span>
             </motion.h1>
@@ -122,8 +126,8 @@ export default function TierListPage() {
                 onClick={() => setRoleFilter(role)}
                 className={`px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 border ${
                   roleFilter === role 
-                  ? 'bg-gradient-to-r from-[#00f2ff]/20 to-[#a855f7]/20 border-[#00f2ff]/50 text-white shadow-[0_0_20px_rgba(0,242,255,0.3)] scale-105' 
-                  : 'bg-black/40 backdrop-blur-sm border-white/5 text-slate-400 hover:bg-white/10 hover:text-white hover:border-[#a855f7]/50'
+                  ? 'bg-gradient-to-r from-[#f97316]/20 to-[#fb923c]/20 border-[#f97316]/50 text-white shadow-[0_0_20px_rgba(249,115,22,0.3)] scale-105' 
+                  : 'bg-black/40 backdrop-blur-sm border-white/5 text-slate-400 hover:bg-white/10 hover:text-white hover:border-[#f97316]/50'
                 }`}
               >
                 {role}
@@ -205,19 +209,19 @@ export default function TierListPage() {
                                     <span className="font-bold text-[9px] uppercase tracking-wider text-white truncate w-full text-center leading-none mb-0.5" style={{ textShadow: "0 2px 4px black" }}>
                                       {champ.name}
                                     </span>
-                                    <span className={`text-[8px] font-mono font-bold leading-none ${champ.winRate >= 50 ? 'text-[#00f2ff]' : 'text-[#ef4444]'}`}>
+                                    <span className={`text-[8px] font-mono font-bold leading-none ${champ.winRate >= 50 ? 'text-[#10b981]' : 'text-[#ef4444]'}`}>
                                       {champ.winRate}% WR
                                     </span>
                                   </div>
 
                                   {/* Dynamic Hover Border Glow */}
-                                  <div className={`absolute inset-0 border-2 border-transparent group-hover:border-[${style.color}] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                                  <div className={`absolute inset-0 border-2 border-transparent group-hover:border-[${style.color}] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
 
                                   {/* Hover Data Tooltip (Pops up above) */}
-                                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-32 bg-[#010a13]/95 backdrop-blur-xl border border-white/20 rounded-lg p-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 z-[100] shadow-2xl flex flex-col gap-1">
+                                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-32 bg-[#050505]/95 backdrop-blur-xl border border-white/20 rounded-lg p-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 z-[100] shadow-2xl flex flex-col gap-1">
                                     <div className="text-[10px] font-bold text-white text-center border-b border-white/10 pb-1 mb-1">{champ.name}</div>
                                     <div className="flex justify-between text-[9px] font-mono text-slate-400">
-                                      <span>Win:</span> <span className={champ.winRate >= 50 ? "text-[#00f2ff]" : "text-[#ef4444]"}>{champ.winRate}%</span>
+                                      <span>Win:</span> <span className={champ.winRate >= 50 ? "text-[#10b981]" : "text-[#ef4444]"}>{champ.winRate}%</span>
                                     </div>
                                     <div className="flex justify-between text-[9px] font-mono text-slate-400">
                                       <span>Pick:</span> <span className="text-white">{champ.pickRate}%</span>
@@ -247,11 +251,11 @@ export default function TierListPage() {
              <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }} 
                 animate={{ opacity: 1, scale: 1 }} 
-                className="text-center py-24 border border-dashed border-[#00f2ff]/20 rounded-2xl bg-[#00f2ff]/5 backdrop-blur-sm mt-10"
+                className="text-center py-24 border border-dashed border-[#f97316]/20 rounded-2xl bg-[#f97316]/5 backdrop-blur-sm mt-10"
               >
-               <div className="text-4xl text-[#00f2ff]/40 mb-4 font-light">∅</div>
+               <div className="text-4xl text-[#f97316]/40 mb-4 font-light">∅</div>
                <p className="text-slate-400 text-sm uppercase tracking-widest font-mono">
-                 Insufficient metadata for <span className="text-[#00f2ff] font-bold">{roleFilter}</span> role
+                 Insufficient metadata for <span className="text-[#f97316] font-bold">{roleFilter}</span> role
                </p>
              </motion.div>
           )}

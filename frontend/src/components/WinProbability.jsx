@@ -7,15 +7,15 @@ export default function WinProbability({ probability }) {
   const percentage = Math.round(probability * 100);
   const isBlueWin = probability >= 0.5;
   
-  // Hard-coded Neon Colors
-  const color = isBlueWin ? "#00f2ff" : "#ef4444"; // Cyan vs Red
-  const glowColor = isBlueWin ? "rgba(0, 242, 255, 0.4)" : "rgba(239, 68, 68, 0.4)";
+  // Team-contextual colors (functional, not theme)
+  const color = isBlueWin ? "#3b82f6" : "#ef4444"; // Blue vs Red (team indicators)
+  const glowColor = isBlueWin ? "rgba(59, 130, 246, 0.3)" : "rgba(239, 68, 68, 0.3)";
 
   // Animation State for the Number Counter
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
-    const duration = 1500; // 1.5 seconds animation
+    const duration = 1500;
     const steps = 60;
     const increment = percentage / steps;
     let current = 0;
@@ -58,7 +58,7 @@ export default function WinProbability({ probability }) {
           <circle
             cx="128" cy="128" r={radius}
             fill="transparent"
-            stroke="#091428" // Dark Navy
+            stroke="#1a1a1a"
             strokeWidth="12"
           />
           
@@ -100,9 +100,9 @@ export default function WinProbability({ probability }) {
 
       {/* Aesthetic decorative lines below */}
       <div className="flex items-center gap-2 mt-4 opacity-50">
-        <div className="w-12 h-[1px]" style={{ backgroundColor: color }} />
-        <div className="w-2 h-2 rotate-45 border" style={{ borderColor: color }} />
-        <div className="w-12 h-[1px]" style={{ backgroundColor: color }} />
+        <div className="w-12 h-[1px] bg-[#e60000]" />
+        <div className="w-2 h-2 rotate-45 border border-[#e60000]" />
+        <div className="w-12 h-[1px] bg-[#e60000]" />
       </div>
     </div>
   );

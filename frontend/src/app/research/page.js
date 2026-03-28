@@ -21,8 +21,8 @@ const customStyles = `
   }
   /* Custom glowing scrollbar for this page */
   ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: #010a13; }
-  ::-webkit-scrollbar-thumb { background: #00f2ff; border-radius: 10px; box-shadow: 0 0 10px #00f2ff; }
+  ::-webkit-scrollbar-track { background: #050505; }
+  ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; box-shadow: 0 0 10px #6366f1; }
 `;
 
 export default function ResearchPage() {
@@ -46,9 +46,9 @@ export default function ResearchPage() {
   }, []);
 
   if (loading) return (
-    <div className="min-h-screen bg-transparent flex flex-col items-center justify-center text-[#00f2ff] relative">
-      <div className="w-16 h-16 border-4 border-[#00f2ff]/20 border-t-[#00f2ff] rounded-full animate-spin mb-6 drop-shadow-[0_0_15px_rgba(0,242,255,0.8)]" />
-      <p className="font-mono tracking-[0.3em] animate-pulse text-[#00f2ff]/70 text-sm">ACCESSING ARCHIVES...</p>
+    <div className="min-h-screen bg-transparent flex flex-col items-center justify-center text-[#6366f1] relative">
+      <div className="w-16 h-16 border-4 border-[#6366f1]/20 border-t-[#6366f1] rounded-full animate-spin mb-6 drop-shadow-[0_0_15px_rgba(99,102,241,0.8)]" />
+      <p className="font-mono tracking-[0.3em] animate-pulse text-[#6366f1]/70 text-sm">ACCESSING ARCHIVES...</p>
     </div>
   );
 
@@ -108,8 +108,8 @@ export default function ResearchPage() {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-[#010a13]/95 border border-[#00f2ff]/30 p-4 rounded backdrop-blur-xl shadow-[0_0_30px_rgba(0,242,255,0.1)] font-mono">
-          <p className="text-[#00f2ff] font-bold mb-3 border-b border-[#00f2ff]/20 pb-2 uppercase tracking-wider">{label}</p>
+        <div className="bg-[#050505]/95 border border-[#6366f1]/30 p-4 rounded backdrop-blur-xl shadow-[0_0_30px_rgba(99,102,241,0.1)] font-mono">
+          <p className="text-[#6366f1] font-bold mb-3 border-b border-[#6366f1]/20 pb-2 uppercase tracking-wider">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} style={{ color: entry.color }} className="text-xs font-bold flex justify-between gap-8 mb-1">
               <span>{entry.name.replace('_', '-')}:</span> 
@@ -123,9 +123,13 @@ export default function ResearchPage() {
   };
 
   return (
-    <main className="min-h-screen bg-transparent text-white pb-32 overflow-hidden relative selection:bg-[#00f2ff] selection:text-black">
+    <main className="min-h-screen bg-transparent text-white pb-32 overflow-hidden relative selection:bg-[#6366f1] selection:text-white">
       
       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
+
+      {/* Contextual Route Background Glow (Indigo) */}
+      <div className="absolute top-0 left-[20%] w-[600px] h-[600px] bg-[#6366f1]/10 rounded-full blur-[150px] pointer-events-none z-[-1]" />
+      <div className="absolute top-[40%] right-[-10%] w-[400px] h-[400px] bg-slate-500/10 rounded-full blur-[120px] pointer-events-none z-[-1]" />
 
       <div className="relative z-10 w-full">
         <Navbar />
@@ -138,17 +142,17 @@ export default function ResearchPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 mb-8 backdrop-blur-xl shadow-[0_0_15px_rgba(236,72,153,0.2)]"
+              className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-[#6366f1]/30 bg-[#6366f1]/10 mb-8 backdrop-blur-xl shadow-[0_0_15px_rgba(99,102,241,0.2)]"
             >
-              <Sparkles size={14} className="text-fuchsia-400 animate-pulse" />
-              <span className="text-fuchsia-400/90 text-[10px] font-bold tracking-[0.4em] uppercase">Architecture Evaluation</span>
+              <Sparkles size={14} className="text-[#6366f1] animate-pulse" />
+              <span className="text-[#6366f1]/90 text-[10px] font-bold tracking-[0.4em] uppercase">Architecture Evaluation</span>
             </motion.div>
 
             <motion.h1 
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-fuchsia-400 to-orange-400 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+              className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] via-[#818cf8] to-slate-400 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]"
             >
               Neural <span className="italic text-white">Metrics</span>
             </motion.h1>
@@ -172,13 +176,13 @@ export default function ResearchPage() {
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <div className="relative bg-[#031118]/60 backdrop-blur-2xl border border-[#00f2ff]/20 p-6 md:p-10 rounded-2xl overflow-hidden group hover:border-[#00f2ff]/50 transition-all duration-500 shadow-2xl">
+            <div className="relative bg-[#050505]/60 backdrop-blur-2xl border border-[#6366f1]/20 p-6 md:p-10 rounded-2xl overflow-hidden group hover:border-[#6366f1]/50 transition-all duration-500 shadow-2xl">
               
               {/* Inner Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00f2ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-              <h2 className="text-3xl font-black mb-10 flex items-center gap-4 text-[#00f2ff] uppercase tracking-widest">
-                <Target size={30} className="text-[#00f2ff]/50" /> Performance Autopsy
+              <h2 className="text-3xl font-black mb-10 flex items-center gap-4 text-[#6366f1] uppercase tracking-widest">
+                <Target size={30} className="text-[#6366f1]/50" /> Performance Autopsy
               </h2>
               
               <div className="h-[500px] w-full relative z-10">
@@ -209,13 +213,13 @@ export default function ResearchPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="mb-24"
             >
-              <div className="relative bg-[#031118]/60 backdrop-blur-2xl border border-fuchsia-500/20 p-6 md:p-10 rounded-2xl overflow-hidden group hover:border-fuchsia-500/50 transition-all duration-500 shadow-2xl">
+              <div className="relative bg-[#050505]/60 backdrop-blur-2xl border border-[#6366f1]/20 p-6 md:p-10 rounded-2xl overflow-hidden group hover:border-[#6366f1]/50 transition-all duration-500 shadow-2xl">
                 
-                <div className="absolute inset-0 bg-gradient-to-tl from-fuchsia-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-[#6366f1]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
-                  <h2 className="text-3xl font-black flex items-center gap-4 text-fuchsia-400 uppercase tracking-widest">
-                    <TrendingUp size={30} className="text-fuchsia-400/50" /> ROC Trajectories
+                  <h2 className="text-3xl font-black flex items-center gap-4 text-[#6366f1] uppercase tracking-widest">
+                    <TrendingUp size={30} className="text-[#6366f1]/50" /> ROC Trajectories
                   </h2>
                 </div>
                 
@@ -225,7 +229,7 @@ export default function ResearchPage() {
                       <CartesianGrid strokeDasharray="2 2" stroke="rgba(236,72,153,0.05)" />
                       <XAxis dataKey="fpr" stroke="#64748b" tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }} type="number" domain={[0, 1]} />
                       <YAxis stroke="#64748b" tick={{ fill: '#94a3b8', fontSize: 12, fontFamily: 'monospace' }} type="number" domain={[0, 1]} />
-                      <RechartsTooltip contentStyle={{ backgroundColor: '#010a13', border: '1px solid rgba(236,72,153,0.2)', borderRadius: '12px', color: '#fff', backdropFilter: 'blur(10px)', boxShadow: '0 0 30px rgba(0,0,0,0.5)' }} itemStyle={{ fontFamily: 'monospace', fontSize: '12px', fontWeight: 'bold' }} labelStyle={{ display: 'none' }} />
+                      <RechartsTooltip contentStyle={{ backgroundColor: '#050505', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '12px', color: '#fff', backdropFilter: 'blur(10px)', boxShadow: '0 0 30px rgba(0,0,0,0.5)' }} itemStyle={{ fontFamily: 'monospace', fontSize: '12px', fontWeight: 'bold' }} labelStyle={{ display: 'none' }} />
                       <Legend wrapperStyle={{ paddingTop: '30px', fontFamily: 'monospace', fontSize: '11px' }} formatter={(value) => <span className="text-white hover:text-white/70 transition-colors uppercase tracking-wider">{value}</span>} />
                       
                       <Line type="monotone" dataKey="fpr" name="Random Guess" stroke="#475569" strokeDasharray="3 3" dot={false} strokeWidth={2} />
@@ -263,9 +267,9 @@ export default function ResearchPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center gap-4 mb-12 px-2">
-              <Network size={32} className="text-[#00f2ff]/50" />
+              <Network size={32} className="text-[#6366f1]/50" />
               <div>
-                <h2 className="text-3xl font-black text-[#00f2ff] uppercase tracking-widest font-mono">
+                <h2 className="text-3xl font-black text-[#6366f1] uppercase tracking-widest font-mono">
                   Confusion Nodes
                 </h2>
                 <p className="text-slate-400 font-mono text-sm tracking-widest uppercase mt-1">Raw Classification Matrix</p>
@@ -294,21 +298,21 @@ export default function ResearchPage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <div 
-                      className={`relative overflow-hidden p-6 md:p-8 transition-all duration-500 rounded-2xl border ${isEnsemble ? 'border-[#00f2ff]/40 shadow-[0_0_40px_rgba(0,242,255,0.15)] bg-[#00f2ff]/5' : 'border-white/10 hover:border-white/20 bg-[#010a13]/80 backdrop-blur-xl'} group`}
+                      className={`relative overflow-hidden p-6 md:p-8 transition-all duration-500 rounded-2xl border ${isEnsemble ? 'border-[#6366f1]/40 shadow-[0_0_40px_rgba(99,102,241,0.15)] bg-[#6366f1]/5' : 'border-white/10 hover:border-white/20 bg-[#050505]/80 backdrop-blur-xl'} group`}
                     >
                       {/* Animated Corner Accents */}
-                      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#00f2ff]/30 group-hover:border-[#00f2ff] transition-colors duration-300" />
-                      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#00f2ff]/30 group-hover:border-[#00f2ff] transition-colors duration-300" />
+                      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#6366f1]/30 group-hover:border-[#6366f1] transition-colors duration-300" />
+                      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#6366f1]/30 group-hover:border-[#6366f1] transition-colors duration-300" />
 
                       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 pb-4 border-b border-white/10">
-                        <h3 className={`text-xl font-bold font-mono tracking-widest uppercase ${isEnsemble ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] transition-fuchsia-400 drop-shadow-[0_0_10px_rgba(0,242,255,0.8)]' : 'text-[#00f2ff]'} mb-4 md:mb-0`}>
+                        <h3 className={`text-xl font-bold font-mono tracking-widest uppercase ${isEnsemble ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] transition-slate-400 drop-shadow-[0_0_10px_rgba(99,102,241,0.8)]' : 'text-[#6366f1]'} mb-4 md:mb-0`}>
                           {key}
                         </h3>
                         <div className="flex gap-3">
                           <span className="text-xs md:text-sm font-mono text-fuchsia-400 bg-fuchsia-400/10 px-4 py-1.5 rounded-sm border border-fuchsia-400/20 uppercase tracking-wider backdrop-blur-md">
                             AUC: {aucScore}
                           </span>
-                          <span className={`text-xs md:text-sm font-mono px-4 py-1.5 rounded-sm border uppercase tracking-wider backdrop-blur-md ${isEnsemble ? 'bg-[#00f2ff] text-black border-[#00f2ff] shadow-[0_0_15px_rgba(0,242,255,0.4)]' : 'text-slate-300 bg-white/5 border-white/10'}`}>
+                          <span className={`text-xs md:text-sm font-mono px-4 py-1.5 rounded-sm border uppercase tracking-wider backdrop-blur-md ${isEnsemble ? 'bg-[#6366f1] text-white border-[#6366f1] shadow-[0_0_15px_rgba(99,102,241,0.4)]' : 'text-slate-300 bg-white/5 border-white/10'}`}>
                             ACC: {Number(acc).toFixed(2)}%
                           </span>
                         </div>
